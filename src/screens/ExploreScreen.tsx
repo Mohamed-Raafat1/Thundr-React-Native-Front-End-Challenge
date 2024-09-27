@@ -13,6 +13,7 @@ import SearchBar from '../components/ExploreScreen/SearchBar';
 import StockGrid from '../components/ExploreScreen/StockGrid';
 import useStockTickers from '../hooks/useStockTickers';
 import LoadingPlaceholder from '../components/common/LoadingPlaceholder';
+import ErrorPlaceholder from '../components/common/ErrorPlaceholder';
 
 
 const ExploreScreen: React.FC = () => {
@@ -26,7 +27,7 @@ const ExploreScreen: React.FC = () => {
     }
 
     if (error) {
-      return <Text>Error fetching stock tickers</Text>;
+      return <ErrorPlaceholder/>
     }
 
     return (
@@ -47,6 +48,7 @@ const ExploreScreen: React.FC = () => {
       </View>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
      {content}
+     <Text style={styles.devText}>Dev: Mohamed Raafat Abdelhamid</Text>
     </SafeAreaView>
   );
 };
@@ -71,6 +73,12 @@ const styles = StyleSheet.create({
     height: 50, // Set desired height
     resizeMode: 'contain', // Prevent distortion
   },
+  devText:{
+    color:'#fff',
+    marginVertical:10,
+    textAlign:'center',
+
+    }
 });
 
 export default ExploreScreen;
