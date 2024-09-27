@@ -4,6 +4,8 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { useGetTickerDetailsQuery } from '../api/polygon.ts/api';
 import { TickerDetailsResponse } from '../api/polygon.ts/types';
 import { RootStackParamList } from '../navigation/navigation';
+import LoadingPlaceholder from '../components/common/LoadingPlaceholder';
+import ErrorPlaceholder from '../components/common/ErrorPlaceholder';
 
 type TickerDetailsScreenRouteProp = RouteProp<RootStackParamList, 'TickerDetailsScreen'>;
 
@@ -15,19 +17,19 @@ const TickerDetailsScreen: React.FC = () => {
 
   if (isLoading) {
 
-    return <View style={styles.container}><ActivityIndicator style={{margin:30}} size={'large'} color={'#fff'} ></ActivityIndicator></View>;
+    return <LoadingPlaceholder></LoadingPlaceholder>
   }
 
-  // Handle error state
-  if (error) {
-    return <Text>Error fetching ticker details</Text>;
+
+ if (error) {
+    return <ErrorPlaceholder></ErrorPlaceholder>
   }
 
   if (!tickerDetails || !tickerDetails.results) {
     return <Text>No details available for this ticker.</Text>;
   }
 
-  // Ensure tickerDetails is typed correctly
+
   const {
     name,
     market_cap,

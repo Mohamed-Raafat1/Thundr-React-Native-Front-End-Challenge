@@ -22,6 +22,7 @@ const navigation = useNavigation<ProfileScreenNavigationProp>();
 const handlePress = () => {
   navigation.navigate('TickerDetailsScreen', { stockTicker });
 }
+
  
   return (
     <TouchableOpacity onPress={handlePress} style={styles.container}>
@@ -31,6 +32,7 @@ const handlePress = () => {
       <View style={styles.infoContainer}>
         <Text style={styles.symbol}>{stockTicker?.ticker}</Text>
         <Text numberOfLines={1} style={styles.name}>{stockTicker?.name}</Text>
+        <Text style={styles.pressableText}>Click for more Info</Text>
       </View>
     </TouchableOpacity>
   );
@@ -45,20 +47,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#232639',
     borderRadius: 12,
     padding: 16,
+
     marginBottom: 16,
     alignItems: 'center',
     justifyContent: 'center',
   },
   logoContainer: {
-    width: 45,
-    height: 45,
+    width: 60,
+    height:60,
     borderRadius: 10,
+    paddingHorizontal:5,
     backgroundColor: '#232639',
     borderColor: '#FFF',
     borderWidth:0.4,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
+    marginTop: 5  ,
   },
   logoText: {
     color: '#FFF',
@@ -80,6 +85,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
   },
+  pressableText:
+  { marginTop:10,
+    color: '#FFF',
+    fontSize: 12,
+    textAlign: 'center'
+  }
+
 });
 
 export default StockItem;

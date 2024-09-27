@@ -20,10 +20,11 @@ const StockList: React.FC<StockListProps> = ({stockTickers,onEndReached,loadingM
   return (
     <FlatList
       data={stockTickers}
+      testID="stock-list"
       numColumns={2}
       onEndReached={onEndReached}
       onEndReachedThreshold={0.9}
-      ListFooterComponent={loadingMoreTickers ? <ActivityIndicator style={{margin:30}} size='large' color="white" /> : null}
+      ListFooterComponent={loadingMoreTickers ? <ActivityIndicator testID='' style={{margin:30}} size='large' color="white" /> : null}
       renderItem={({ item }) => (
         <StockItem
             stockTicker={item} 

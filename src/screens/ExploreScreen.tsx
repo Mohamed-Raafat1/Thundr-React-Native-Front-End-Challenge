@@ -1,29 +1,52 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Button, Image, StatusBar } from 'react-native';
+import React, {useEffect, useMemo, useState} from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Image,
+  StatusBar,
+  ActivityIndicator,
+} from 'react-native';
 import SearchBar from '../components/ExploreScreen/SearchBar';
 import StockGrid from '../components/ExploreScreen/StockGrid';
 import useStockTickers from '../hooks/useStockTickers';
-
+import LoadingPlaceholder from '../components/common/LoadingPlaceholder';
 
 
 const ExploreScreen: React.FC = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const { data, isLoading, error, loadMore, isLoadingMoreTickers } = useStockTickers(searchTerm);
+  const [searchTerm, setSearchTerm] = useState('');
+  const {data, isLoading, error, loadMore, isLoadingMoreTickers} =
+    useStockTickers(searchTerm);
 
-    const Separator: React.FC = () => {
-      return <View style={styles.separator} />;
-    };
+ const content = useMemo(() => {
+    if (isLoading) {
+      return <LoadingPlaceholder />;
+    }
+
+    if (error) {
+      return <Text>Error fetching stock tickers</Text>;
+    }
+
+    return (
+      <StockGrid
+        onEndReached={loadMore}
+        loadingMoreTickers={isLoadingMoreTickers}
+        stockTickers={data}
+      />
+    );
+  }, [isLoading, error, data, loadMore, isLoadingMoreTickers]);
+ 
 
   return (
     <SafeAreaView style={styles.container}>
-
       <View style={styles.header}>
-      <Image style={styles.logo} source={require('../assets/logo.png')}  />
-  <Separator />
+        <Image style={styles.logo} source={require('../assets/logo.png')} />
+       <View style={styles.separator} />
       </View>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <StockGrid onEndReached={loadMore} loadingMoreTickers={isLoadingMoreTickers} stockTickers={data} />
-    
+     {content}
     </SafeAreaView>
   );
 };
@@ -34,19 +57,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#181a27',
   },
   header: {
-    padding: 0,
+    marginTop: 10,
     backgroundColor: '#181a27',
-  },separator: {
-    height: 1,              // Height of the line
-    backgroundColor: '#333', // Light gray color for the separator
-
   },
-  
-  logo:{ width: 100, // Set desired width
-    marginStart:10,
-  height: 50, // Set desired height
-  resizeMode: 'contain', // Prevent distortion
-}
+  separator: {
+    height: 1, // Height of the line
+    backgroundColor: '#333', // Light gray color for the separator
+  },
+
+  logo: {
+    width: 100, // Set desired width
+    marginStart: 10,
+    height: 50, // Set desired height
+    resizeMode: 'contain', // Prevent distortion
+  },
 });
 
 export default ExploreScreen;

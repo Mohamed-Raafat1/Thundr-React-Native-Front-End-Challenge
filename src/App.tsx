@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import HomeStack from './navigation/HomeStack';
 import BootSplash from "react-native-bootsplash";
+import { StatusBar } from 'react-native';
 
 
 
@@ -28,6 +29,7 @@ function App(): React.JSX.Element {
   return (
 
     <Provider store={store}>
+      <StatusBar barStyle="light-content" backgroundColor="#181a27" />
    <HomeStack/>
   </Provider>
 
