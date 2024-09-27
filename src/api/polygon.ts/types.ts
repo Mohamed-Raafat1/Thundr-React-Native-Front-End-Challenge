@@ -23,31 +23,46 @@ export interface StockTicker {
     status: string;
   }
 
-export  interface Address {
-    address1: string;
-    city: string;
-    state: string;
-    postal_code: string;
-  }
-  
- export interface Branding {
-    logo_url?: string; // Making it optional
-    icon_url?: string; // Making it optional
-  }
-  
- export  interface TickerDetails {
-    name: string;
-    ticker: string;
-    currency_name: string;
-    description: string;
-    address: Address;
-    phone_number: string;
-    branding?: Branding; // Optional since it can be undefined
-  }
-  
- export interface TickerDetailsResponse {
-    request_id: string;
-    results: TickerDetails;
-    status: string;
-  }
-  
+// types.ts
+
+export interface TickerDetails {
+  ticker: string;
+  name: string;
+  market: string;
+  locale: string;
+  primary_exchange: string;
+  type: string;
+  active: boolean;
+  currency_name: string;
+  cik: string;
+  composite_figi: string;
+  share_class_figi: string;
+  market_cap: number;
+  phone_number: string;
+  address: {
+      address1: string;
+      city: string;
+      state: string;
+      postal_code: string;
+  };
+  description: string;
+  sic_code: string;
+  sic_description: string;
+  ticker_root: string;
+  homepage_url: string;
+  total_employees: number;
+  list_date: string;
+  branding: {
+      logo_url: string;
+      icon_url: string;
+  };
+  share_class_shares_outstanding: number;
+  weighted_shares_outstanding: number;
+  round_lot: number;
+}
+
+export interface TickerDetailsResponse {
+  request_id: string;
+  results: TickerDetails;
+  status: string;
+}

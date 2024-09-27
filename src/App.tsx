@@ -1,37 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
 
 
-  StyleSheet,
+import React, { useEffect } from 'react';
 
-  useColorScheme,
 
-} from 'react-native';
-import SearchBar from './components/ExploreScreen/SearchBar';
-import ExploreScreen from './screens/ExploreScreen';
+
 import { Provider } from 'react-redux';
 import { store } from './store';
+import HomeStack from './navigation/HomeStack';
+import BootSplash from "react-native-bootsplash";
 
 
 
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  useEffect(() => {
+    const init = async () => {
+      // …do multiple sync or async tasks
+    };
+
+    init().finally(async () => {
+      await BootSplash.hide({ fade: true });
+
+    });
+  }, []);
 
 
   return (
 
     <Provider store={store}>
-    <ExploreScreen />
+   <HomeStack/>
   </Provider>
 
   );

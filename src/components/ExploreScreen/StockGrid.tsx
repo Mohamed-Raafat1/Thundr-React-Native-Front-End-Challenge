@@ -3,6 +3,7 @@ import React from 'react';
 import { ActivityIndicator, FlatList, StyleSheet } from 'react-native';
 import StockItem from './StockItem';
 import { StockTicker } from '../../api/polygon.ts/types';
+import { useNavigation } from '@react-navigation/native';
 
 
 interface StockListProps {
@@ -13,6 +14,8 @@ interface StockListProps {
 
 
 const StockList: React.FC<StockListProps> = ({stockTickers,onEndReached,loadingMoreTickers}) => {
+  
+  // Inside your component
 
   return (
     <FlatList
@@ -20,7 +23,7 @@ const StockList: React.FC<StockListProps> = ({stockTickers,onEndReached,loadingM
       numColumns={2}
       onEndReached={onEndReached}
       onEndReachedThreshold={0.9}
-      ListFooterComponent={loadingMoreTickers ? <ActivityIndicator size='large' color="white" /> : null}
+      ListFooterComponent={loadingMoreTickers ? <ActivityIndicator style={{margin:30}} size='large' color="white" /> : null}
       renderItem={({ item }) => (
         <StockItem
             stockTicker={item} 

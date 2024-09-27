@@ -15,6 +15,8 @@
 		6437A02F4F7091EBA53DC6BE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1D2A889E751E62A5C5F57405 /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-StockMarkertAppThundrChallenge-StockMarkertAppThundrChallengeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-StockMarkertAppThundrChallenge-StockMarkertAppThundrChallengeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		AAAB666EFF524D409CF94E46 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6050E8A89AE4DE1A1BB528B /* Colors.xcassets */; };
+		CA0962618603441D8CC4039D /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1F525E3EC8F4FB1A58540D2 /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-StockMarkertAppThundrChallenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StockMarkertAppThundrChallenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = StockMarkertAppThundrChallenge/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-StockMarkertAppThundrChallenge-StockMarkertAppThundrChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockMarkertAppThundrChallenge-StockMarkertAppThundrChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-StockMarkertAppThundrChallenge-StockMarkertAppThundrChallengeTests/Pods-StockMarkertAppThundrChallenge-StockMarkertAppThundrChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		B1F525E3EC8F4FB1A58540D2 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = StockMarkertAppThundrChallenge/BootSplash.storyboard; sourceTree = "<group>"; };
+		E6050E8A89AE4DE1A1BB528B /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = StockMarkertAppThundrChallenge/Colors.xcassets; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				1D2A889E751E62A5C5F57405 /* PrivacyInfo.xcprivacy */,
+				B1F525E3EC8F4FB1A58540D2 /* BootSplash.storyboard */,
+				E6050E8A89AE4DE1A1BB528B /* Colors.xcassets */,
 			);
 			name = StockMarkertAppThundrChallenge;
 			sourceTree = "<group>";
@@ -249,6 +255,8 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				6437A02F4F7091EBA53DC6BE /* PrivacyInfo.xcprivacy in Resources */,
+				CA0962618603441D8CC4039D /* BootSplash.storyboard in Resources */,
+				AAAB666EFF524D409CF94E46 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

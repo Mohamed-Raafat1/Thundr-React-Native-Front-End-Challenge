@@ -29,8 +29,14 @@ export const polygonApi = createApi({
           return response; // Modify as needed
         },
       }),
+      getTickerDetails: builder.query<TickerDetailsResponse, { ticker: string }>({
+        query: ({ ticker }) => `reference/tickers/${ticker}?apiKey=${apiKey}`,
+        transformResponse: (response: TickerDetailsResponse) => {
+          return response; // Modify as needed
+        },
+      }),
 
   }),
 });
 
-export const { useGetStockTickersQuery ,useLazyLoadMoreTickersQuery} = polygonApi;
+export const { useGetStockTickersQuery ,useLazyLoadMoreTickersQuery,useGetTickerDetailsQuery} = polygonApi;

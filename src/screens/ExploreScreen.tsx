@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Button, Image, StatusBar } from 'react-native';
 import SearchBar from '../components/ExploreScreen/SearchBar';
 import StockGrid from '../components/ExploreScreen/StockGrid';
-import { useGetStockTickersQuery, useLazyLoadMoreTickersQuery } from '../api/polygon.ts/api';
-import { StockTicker } from '../api/polygon.ts/types';
 import useStockTickers from '../hooks/useStockTickers';
+
+
 
 const ExploreScreen: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const { data, isLoading, error, loadMore, isLoadingMoreTickers } = useStockTickers(searchTerm);
 
-
+    const Separator: React.FC = () => {
+      return <View style={styles.separator} />;
+    };
 
   return (
     <SafeAreaView style={styles.container}>
+
       <View style={styles.header}>
-        <Text style={styles.logo}>N Nasdaq</Text>
+      <Image style={styles.logo} source={require('../assets/logo.png')}  />
+  <Separator />
       </View>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <StockGrid onEndReached={loadMore} loadingMoreTickers={isLoadingMoreTickers} stockTickers={data} />
@@ -27,16 +31,22 @@ const ExploreScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1e202f',
+    backgroundColor: '#181a27',
   },
   header: {
-    padding: 10,
+    padding: 0,
+    backgroundColor: '#181a27',
+  },separator: {
+    height: 1,              // Height of the line
+    backgroundColor: '#333', // Light gray color for the separator
+
   },
-  logo: {
-    color: '#FFF',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
+  
+  logo:{ width: 100, // Set desired width
+    marginStart:10,
+  height: 50, // Set desired height
+  resizeMode: 'contain', // Prevent distortion
+}
 });
 
 export default ExploreScreen;

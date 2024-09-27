@@ -1,20 +1,30 @@
 // src/components/ExploreScreen/StockItem.tsx
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { StockTicker } from '../../api/polygon.ts/types';
-
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../navigation/navigation';
+type ProfileScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Explore'>;
 
 
 interface StockItemProps {
-    stockTicker?:StockTicker
+    stockTicker:StockTicker
 }
 const { width } = Dimensions.get('window');
-const itemWidth = (width - 48) / 2; // 48 = padding (16 * 2) + gap between items (16)
+const itemWidth = (width - 48) / 2; 
 
 const StockItem: React.FC<StockItemProps> = ({  stockTicker }) => {
+
+const navigation = useNavigation<ProfileScreenNavigationProp>();
+
+
+const handlePress = () => {
+  navigation.navigate('TickerDetailsScreen', { stockTicker });
+}
  
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
       <View style={styles.logoContainer}>
         <Text style={styles.logoText}>{stockTicker?.ticker}</Text>
       </View>
@@ -22,7 +32,7 @@ const StockItem: React.FC<StockItemProps> = ({  stockTicker }) => {
         <Text style={styles.symbol}>{stockTicker?.ticker}</Text>
         <Text numberOfLines={1} style={styles.name}>{stockTicker?.name}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
