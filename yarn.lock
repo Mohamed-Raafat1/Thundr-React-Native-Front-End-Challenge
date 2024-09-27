@@ -2842,11 +2842,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 22.7.3
-  resolution: "@types/node@npm:22.7.3"
+  version: 22.7.4
+  resolution: "@types/node@npm:22.7.4"
   dependencies:
     undici-types: ~6.19.2
-  checksum: 1785ceb0d7b05b2a68df85ec89f2c76bc57a59f4f7a349966f2f7c8ee531d59dcba1adb4e3fddb19e0981ded96bf255291858e6b56dfe7984247b3a4f1227a22
+  checksum: a3f4154147639369aed08fe6f8d62eff637cf87b187bb252d7bbccdc82884626007af424b08a653c53f2182adfa0340001b4888cb7cbb942cef351210fc742a5
   languageName: node
   linkType: hard
 
@@ -2867,12 +2867,12 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:^18.2.6":
-  version: 18.3.9
-  resolution: "@types/react@npm:18.3.9"
+  version: 18.3.10
+  resolution: "@types/react@npm:18.3.10"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: ac8c7cf6f9c5c2ecef790f3db6f98c672fdec0884f4e4730777fd18823207231cdd1d2e4673f473ef17a096c73c87bff309e83b026fb2602ba068371f0dc54fe
+  checksum: 04261654b5f4bc9584e9d882c7dfd5b36dc58963f958f8c3efd24cb68c9d205bc2d57558a1479b86d7827f0e5116d5bd111791d1253583d1e1c165f0aeb48c48
   languageName: node
   linkType: hard
 
@@ -5369,9 +5369,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-  version: 0.247.0
-  resolution: "flow-parser@npm:0.247.0"
-  checksum: eed5ac731f3c43be72b86f1775d31ea5e874f056630cc074bd4d1cda18fd6bf2d6a885c0bbd92dd3fb1e0fc15772699c057f46a00e69491d05a4984c87d95bce
+  version: 0.247.1
+  resolution: "flow-parser@npm:0.247.1"
+  checksum: 3e6d175f5f58ef23320df710536a82fdf0e7acaa0f4da4d02943312b2f8ea312c050e30ff9388a39311e545214099ab09f342d025daca2f2b19f2d3015ce9458
   languageName: node
   linkType: hard
 
