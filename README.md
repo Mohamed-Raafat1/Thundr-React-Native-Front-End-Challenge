@@ -1,4 +1,4 @@
-
+note: i did leave the api key in the code for ease of testing.. thank you.
 
 ## Step 1: Install the needed dependencies
 
