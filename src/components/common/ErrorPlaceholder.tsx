@@ -7,7 +7,7 @@ const ErrorPlaceholder: React.FC = () => {
     <View style={styles.container}>
       <Image source={require('../../assets/error-icon.png')} style={styles.icon} />
       <Text style={styles.errorMessage}>
-        { "Oops! Something went wrong."}
+        { "Oops! Rate limit has been reached."}
       </Text>
       
     </View>

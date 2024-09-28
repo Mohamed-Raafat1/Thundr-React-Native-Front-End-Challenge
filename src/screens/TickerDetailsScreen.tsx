@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView, Image, ActivityIndicator } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { useGetTickerDetailsQuery } from '../api/polygon.ts/api';
 import { TickerDetailsResponse } from '../api/polygon.ts/types';
@@ -8,13 +8,24 @@ import LoadingPlaceholder from '../components/common/LoadingPlaceholder';
 import ErrorPlaceholder from '../components/common/ErrorPlaceholder';
 
 type TickerDetailsScreenRouteProp = RouteProp<RootStackParamList, 'TickerDetailsScreen'>;
-
+const RATE_LIMIT_DELAY = 60000;
 const TickerDetailsScreen: React.FC = () => {
   const route = useRoute<TickerDetailsScreenRouteProp>();
   const { stockTicker } = route.params;
   const ticker = stockTicker?.ticker;
-  const { data: tickerDetails, isLoading, error } = useGetTickerDetailsQuery({ ticker });
-
+  const { data: tickerDetails, isLoading, error,refetch } = useGetTickerDetailsQuery({ ticker });
+  useEffect(() => {
+    if (error) {
+      const cancelTimeout = setTimeout(() => {
+        refetch(); // Attempt to refetch data after the delay
+      }, RATE_LIMIT_DELAY);
+  
+      return () => {
+        clearTimeout(cancelTimeout); // Cleanup function to clear the timeout
+      };
+    }
+  }, [error, refetch]);
+  
   if (isLoading) {
 
     return <LoadingPlaceholder></LoadingPlaceholder>
