@@ -20,6 +20,19 @@ const useStockTickers = (searchTerm: string) => {
     searchTerm: debouncedSearchTerm,
   });
 
+  useEffect(() => {
+    if (error) {
+     
+        setIsRateLimited(true); // Set rate limit flag
+        setTimeout(() => {
+          refetch(); // Attempt to refetch data after the delay
+          setIsRateLimited(false); // Reset rate limit flag after delay
+        }, RATE_LIMIT_DELAY);
+  
+  
+      
+    }
+  }, [error, refetch]);
   // Debounce search term updates
   useEffect(() => {
     const handler = setTimeout(() => {
