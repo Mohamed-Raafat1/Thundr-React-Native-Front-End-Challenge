@@ -5,7 +5,7 @@ function LoadingPlaceholder() {
   return (
     <View style={styles.container}>
     <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-   <ActivityIndicator style={{margin:30}} size={'large'} color={'#fff'} ></ActivityIndicator>
+   <ActivityIndicator testID='loading-indicator' style={{margin:30}} size={'large'} color={'#fff'} ></ActivityIndicator>
    </View>
   </View>
   )

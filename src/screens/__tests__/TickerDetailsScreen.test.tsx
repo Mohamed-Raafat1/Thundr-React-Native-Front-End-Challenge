@@ -62,7 +62,7 @@ describe('TickerDetailsScreen', () => {
 
     const { getByText } = renderWithNavigation(<TickerDetailsScreen />);
     await waitFor(() => {
-      expect(getByText('Error fetching ticker details')).toBeTruthy();
+      expect(getByText('Oops! Rate limit has been reached.')).toBeTruthy();
     });
   });
 
