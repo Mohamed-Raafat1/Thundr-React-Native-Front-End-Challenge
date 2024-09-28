@@ -32,4 +32,7 @@ yarn ios
 
 yarn test
 ```
+### Small Demo
+![Simulator Screen Recording - iPhone SE (3rd generation) - 2024-09-28 at 03 16 50](https://github.com/user-attachments/assets/d11d0719-c00a-43ab-9956-638b65fd9c8d)
+
 
