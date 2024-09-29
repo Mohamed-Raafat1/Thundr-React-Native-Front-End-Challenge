@@ -34,10 +34,7 @@ describe('StockList', () => {
     );
   };
 
-//   it('renders correctly with no stock tickers', () => {
-//     const { getByText } = renderStockList();
-//     expect(getByText('No stock tickers available.')).toBeTruthy(); // Adjust this line if you have a message for empty state
-//   });
+
 
   it('renders stock items correctly', () => {
     const stockTickers: StockTicker[] = [
